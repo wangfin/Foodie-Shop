@@ -1,0 +1,5 @@
+2022-04-29 10:35:02 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-04-29 10:35:02 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：11 毫秒 ======
+2022-04-29 10:35:04 INFO  ThreadPoolTaskExecutor:208 - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-04-29 10:35:04 INFO  HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-04-29 10:35:04 INFO  HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.

@@ -1,0 +1,21 @@
+2022-05-01 21:12:42 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-05-01 21:12:42 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：14 毫秒 ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：9 毫秒 ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：12 毫秒 ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：10 毫秒 ======
+2022-05-01 21:12:43 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：8 毫秒 ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemById ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryCommentCounts ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryPagedComments ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：10 毫秒 ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemImgList ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：6 毫秒 ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemSpecList ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：17 毫秒 ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：12 毫秒 ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemsParam ======
+2022-05-01 21:12:44 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：13 毫秒 ======

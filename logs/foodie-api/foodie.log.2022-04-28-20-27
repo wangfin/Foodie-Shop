@@ -1,0 +1,8 @@
+2022-04-28 20:27:05 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemById ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：4 毫秒 ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemImgList ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemSpecList ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemsParam ======
+2022-04-28 20:27:05 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：2 毫秒 ======

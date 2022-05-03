@@ -1,0 +1,4 @@
+2022-04-28 20:34:23 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.queryAllRootLevelCat ======
+2022-04-28 20:34:24 INFO  HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-04-28 20:34:24 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-04-28 20:34:25 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：1057 毫秒 ======

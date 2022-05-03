@@ -1,0 +1,106 @@
+2022-05-01 21:10:19 INFO  Version:21 - HV000001: Hibernate Validator 6.0.16.Final
+2022-05-01 21:10:19 INFO  Application:50 - Starting Application on TerransForce with PID 3208 (F:\Java_demo\Foodie-dev\foodie-dev-api\target\classes started by 冰糖 in F:\Java_demo\Foodie-dev)
+2022-05-01 21:10:19 INFO  Application:675 - No active profile set, falling back to default profiles: default
+2022-05-01 21:10:20 WARN  ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.imooc]' package. Please check your configuration.
+2022-05-01 21:10:21 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2df72b02] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-01 21:10:21 INFO  TomcatWebServer:90 - Tomcat initialized with port(s): 8088 (http)
+2022-05-01 21:10:21 INFO  ContextLoader:296 - Root WebApplicationContext: initialization completed in 1740 ms
+2022-05-01 21:10:22 WARN  AnnotationConfigServletWebServerApplicationContext:557 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexController': Unsatisfied dependency expressed through field 'carouselService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'carouselServiceImpl': Unsatisfied dependency expressed through field 'carouselMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'carouselMapper' defined in file [F:\Java_demo\Foodie-dev\foodie-dev-mapper\target\classes\com\imooc\mapper\CarouselMapper.class]: Invocation of init method failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.imooc.pojo.vo.ItemCommentVO' referenced from 'com.imooc.mapper.ItemsMapper.queryItemComments'
+2022-05-01 21:10:22 ERROR SpringApplication:858 - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexController': Unsatisfied dependency expressed through field 'carouselService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'carouselServiceImpl': Unsatisfied dependency expressed through field 'carouselMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'carouselMapper' defined in file [F:\Java_demo\Foodie-dev\foodie-dev-mapper\target\classes\com\imooc\mapper\CarouselMapper.class]: Invocation of init method failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.imooc.pojo.vo.ItemCommentVO' referenced from 'com.imooc.mapper.ItemsMapper.queryItemComments'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:843)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.imooc.Application.main(Application.java:16)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'carouselServiceImpl': Unsatisfied dependency expressed through field 'carouselMapper'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'carouselMapper' defined in file [F:\Java_demo\Foodie-dev\foodie-dev-mapper\target\classes\com\imooc\mapper\CarouselMapper.class]: Invocation of init method failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.imooc.pojo.vo.ItemCommentVO' referenced from 'com.imooc.mapper.ItemsMapper.queryItemComments'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1248)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 19 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'carouselMapper' defined in file [F:\Java_demo\Foodie-dev\foodie-dev-mapper\target\classes\com\imooc\mapper\CarouselMapper.class]: Invocation of init method failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.imooc.pojo.vo.ItemCommentVO' referenced from 'com.imooc.mapper.ItemsMapper.queryItemComments'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1248)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 32 more
+Caused by: org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.imooc.pojo.vo.ItemCommentVO' referenced from 'com.imooc.mapper.ItemsMapper.queryItemComments'
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:341)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113)
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816)
+	at java.util.Collection.removeIf(Collection.java:414)
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815)
+	at org.apache.ibatis.session.Configuration.getMappedStatements(Configuration.java:711)
+	at tk.mybatis.mapper.mapperhelper.MapperHelper.processConfiguration(MapperHelper.java:279)
+	at tk.mybatis.spring.mapper.MapperFactoryBean.checkDaoConfig(MapperFactoryBean.java:93)
+	at org.springframework.dao.support.DaoSupport.afterPropertiesSet(DaoSupport.java:44)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774)
+	... 42 more
+Caused by: java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.imooc.pojo.vo.ItemCommentVO
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964)
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339)
+	... 53 more
+2022-05-01 21:10:35 INFO  Version:21 - HV000001: Hibernate Validator 6.0.16.Final
+2022-05-01 21:10:36 INFO  Application:50 - Starting Application on TerransForce with PID 15904 (F:\Java_demo\Foodie-dev\foodie-dev-api\target\classes started by 冰糖 in F:\Java_demo\Foodie-dev)
+2022-05-01 21:10:36 INFO  Application:675 - No active profile set, falling back to default profiles: default
+2022-05-01 21:10:37 WARN  ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.imooc]' package. Please check your configuration.
+2022-05-01 21:10:37 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3f35298e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-01 21:10:37 INFO  TomcatWebServer:90 - Tomcat initialized with port(s): 8088 (http)
+2022-05-01 21:10:37 INFO  ContextLoader:296 - Root WebApplicationContext: initialization completed in 1670 ms
+2022-05-01 21:10:39 INFO  ThreadPoolTaskExecutor:171 - Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-01 21:10:39 INFO  MapperCacheDisabler:60 - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-05-01 21:10:39 INFO  MapperCacheDisabler:60 - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-05-01 21:10:39 INFO  MapperCacheDisabler:60 - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-05-01 21:10:39 INFO  MapperCacheDisabler:83 - Clear EntityHelper entityTableMap cache.
+2022-05-01 21:10:39 INFO  DocumentationPluginsBootstrapper:84 - Context refreshed
+2022-05-01 21:10:39 INFO  DocumentationPluginsBootstrapper:87 - Found 1 custom documentation plugin(s)
+2022-05-01 21:10:39 INFO  ApiListingReferenceScanner:44 - Scanning for api listing references
+2022-05-01 21:10:40 INFO  CachingOperationNameGenerator:40 - Generating unique operation named: commentLevelUsingGET_1
+2022-05-01 21:10:40 INFO  TomcatWebServer:204 - Tomcat started on port(s): 8088 (http) with context path ''
+2022-05-01 21:10:40 INFO  Application:59 - Started Application in 4.53 seconds (JVM running for 5.605)
+2022-05-01 21:10:55 INFO  DispatcherServlet:524 - Initializing Servlet 'dispatcherServlet'
+2022-05-01 21:10:55 INFO  DispatcherServlet:546 - Completed initialization in 10 ms
+2022-05-01 21:10:55 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CarouselServiceImpl.queryAll ======
+2022-05-01 21:10:55 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.queryAllRootLevelCat ======
+2022-05-01 21:10:55 INFO  HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-05-01 21:10:56 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-05-01 21:10:56 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：1055 毫秒 ======
+2022-05-01 21:10:56 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：1056 毫秒 ======
+2022-05-01 21:10:56 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-01 21:10:56 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：31 毫秒 ======

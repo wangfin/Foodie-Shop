@@ -1,0 +1,5 @@
+2022-04-25 14:23:58 INFO  Version:21 - HV000001: Hibernate Validator 6.0.16.Final
+2022-04-25 14:23:58 INFO  Application:50 - Starting Application on TerransForce with PID 4168 (F:\Java_demo\Foodie-dev\foodie-dev-api\target\classes started by 冰糖 in F:\Java_demo\Foodie-dev)
+2022-04-25 14:23:58 INFO  Application:675 - No active profile set, falling back to default profiles: default
+2022-04-25 14:23:59 WARN  ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.imooc]' package. Please check your configuration.
+2022-04-25 14:23:59 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1bca7260] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)

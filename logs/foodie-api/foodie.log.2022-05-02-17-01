@@ -1,0 +1,6 @@
+2022-05-02 17:01:05 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.searchItems ======
+2022-05-02 17:01:05 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：33 毫秒 ======
+2022-05-02 17:01:20 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.searchItemsByThirdCat ======
+2022-05-02 17:01:20 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======
+2022-05-02 17:01:44 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.searchItemsByThirdCat ======
+2022-05-02 17:01:44 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：6 毫秒 ======

@@ -1,0 +1,17 @@
+2022-04-29 10:07:39 INFO  Version:21 - HV000001: Hibernate Validator 6.0.16.Final
+2022-04-29 10:07:40 INFO  Application:50 - Starting Application on TerransForce with PID 1248 (F:\Java_demo\Foodie-dev\foodie-dev-api\target\classes started by 冰糖 in F:\Java_demo\Foodie-dev)
+2022-04-29 10:07:40 INFO  Application:675 - No active profile set, falling back to default profiles: default
+2022-04-29 10:07:41 WARN  ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.imooc]' package. Please check your configuration.
+2022-04-29 10:07:41 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6495687a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-04-29 10:07:42 INFO  TomcatWebServer:90 - Tomcat initialized with port(s): 8088 (http)
+2022-04-29 10:07:42 INFO  ContextLoader:296 - Root WebApplicationContext: initialization completed in 1893 ms
+2022-04-29 10:07:44 INFO  ThreadPoolTaskExecutor:171 - Initializing ExecutorService 'applicationTaskExecutor'
+2022-04-29 10:07:44 INFO  MapperCacheDisabler:60 - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-04-29 10:07:44 INFO  MapperCacheDisabler:60 - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-04-29 10:07:44 INFO  MapperCacheDisabler:60 - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-04-29 10:07:44 INFO  MapperCacheDisabler:83 - Clear EntityHelper entityTableMap cache.
+2022-04-29 10:07:44 INFO  DocumentationPluginsBootstrapper:84 - Context refreshed
+2022-04-29 10:07:44 INFO  DocumentationPluginsBootstrapper:87 - Found 1 custom documentation plugin(s)
+2022-04-29 10:07:44 INFO  ApiListingReferenceScanner:44 - Scanning for api listing references
+2022-04-29 10:07:44 INFO  TomcatWebServer:204 - Tomcat started on port(s): 8088 (http) with context path ''
+2022-04-29 10:07:44 INFO  Application:59 - Started Application in 4.906 seconds (JVM running for 6.177)

@@ -1,0 +1,16 @@
+2022-05-02 16:35:26 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CarouselServiceImpl.queryAll ======
+2022-05-02 16:35:26 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.queryAllRootLevelCat ======
+2022-05-02 16:35:26 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：122 毫秒 ======
+2022-05-02 16:35:26 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：124 毫秒 ======
+2022-05-02 16:35:26 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-02 16:35:26 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：24 毫秒 ======
+2022-05-02 16:35:31 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-05-02 16:35:31 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-05-02 16:35:31 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：46 毫秒 ======
+2022-05-02 16:35:31 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：44 毫秒 ======
+2022-05-02 16:35:31 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-05-02 16:35:31 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：19 毫秒 ======
+2022-05-02 16:35:32 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-05-02 16:35:32 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：17 毫秒 ======
+2022-05-02 16:35:32 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSubCatList ======
+2022-05-02 16:35:32 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：8 毫秒 ======
