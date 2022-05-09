@@ -2,6 +2,13 @@ com\imooc\pojo\OrderStatus.class
 com\imooc\pojo\bo\UserBO.class
 com\imooc\pojo\Carousel.class
 com\imooc\pojo\vo\ShopcartVO.class
+com\imooc\pojo\bo\AddressBO.class
+com\imooc\pojo\OrderItems.class
+com\imooc\pojo\vo\NewItemsVO.class
+com\imooc\pojo\vo\SearchItemsVO.class
+com\imooc\pojo\Users.class
+com\imooc\pojo\vo\SimpleItemVO.class
+com\imooc\pojo\vo\CommentLevelCountsVO.class
 com\imooc\pojo\bo\ShopcartBO.class
 com\imooc\pojo\Orders.class
 com\imooc\pojo\ItemsSpec.class
@@ -12,11 +19,5 @@ com\imooc\pojo\ItemsParam.class
 com\imooc\pojo\UserAddress.class
 com\imooc\pojo\ItemsImg.class
 com\imooc\pojo\Category.class
-com\imooc\pojo\OrderItems.class
-com\imooc\pojo\vo\NewItemsVO.class
-com\imooc\pojo\vo\SearchItemsVO.class
 com\imooc\pojo\Stu.class
-com\imooc\pojo\Users.class
-com\imooc\pojo\vo\SimpleItemVO.class
-com\imooc\pojo\vo\CommentLevelCountsVO.class
 com\imooc\pojo\Items.class

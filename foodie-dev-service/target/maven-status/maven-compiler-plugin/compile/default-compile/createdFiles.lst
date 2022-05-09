@@ -1,9 +1,11 @@
 com\imooc\service\CategoryService.class
 com\imooc\service\impl\ItemServiceImpl.class
 com\imooc\service\impl\UserServiceImpl.class
-com\imooc\service\impl\CarouselServiceImpl.class
+com\imooc\service\AddressService.class
 com\imooc\service\CarouselService.class
 com\imooc\service\impl\CategoryServiceImpl.class
+com\imooc\service\impl\AddressServiceImpl.class
+com\imooc\service\impl\CarouselServiceImpl.class
 com\imooc\service\impl\TestTransServiceImpl.class
 com\imooc\service\ItemService.class
 com\imooc\service\TestTransService.class

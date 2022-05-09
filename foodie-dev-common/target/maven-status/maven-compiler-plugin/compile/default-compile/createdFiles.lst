@@ -4,6 +4,7 @@ org\n3r\idworker\utils\HttpReq.class
 org\n3r\idworker\Code.class
 com\imooc\utils\CookieUtils.class
 org\n3r\idworker\strategy\FileLock.class
+com\imooc\utils\MobileEmailUtils.class
 com\imooc\utils\JsonUtils.class
 com\imooc\utils\PagedGridResult.class
 org\n3r\idworker\Test.class

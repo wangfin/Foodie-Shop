@@ -1,0 +1,4 @@
+2022-05-09 16:49:36 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.AddressServiceImpl.addNewUserAddress ======
+2022-05-09 16:49:36 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：46 毫秒 ======
+2022-05-09 16:49:36 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.AddressServiceImpl.queryAll ======
+2022-05-09 16:49:36 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======

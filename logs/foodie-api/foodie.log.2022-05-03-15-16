@@ -1,0 +1,4 @@
+2022-05-03 15:16:52 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemsBySpecIds ======
+2022-05-03 15:16:52 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======
+2022-05-03 15:16:57 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.ItemServiceImpl.queryItemsBySpecIds ======
+2022-05-03 15:16:57 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：12 毫秒 ======
