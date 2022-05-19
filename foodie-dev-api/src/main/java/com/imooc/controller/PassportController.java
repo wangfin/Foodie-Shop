@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 @Api(value = "注册登录", tags = {"用于注册登录的相关接口"})
 @RestController
 @RequestMapping("passport")
-public class PassportController {
+public class PassportController extends BaseController{
 
     @Autowired
     private UserService userService;
@@ -81,7 +81,7 @@ public class PassportController {
         userResult = setNullProperty(userResult);
 
         // 在注册完成之后，同样设置cookie
-        CookieUtils.setCookie(request, response, "user",
+        CookieUtils.setCookie(request, response, BaseController.USER_COOKIE,
                 JsonUtils.objectToJson(userResult), true);
 
         // TODO 生成用户token，存入redis会话
@@ -119,7 +119,7 @@ public class PassportController {
         // 设置cookie，将用户登录信息保存在cookie里，而不是使用session
         // session后面使用分布式session，使用无状态信息
         // JsonUtils.objectToJson将userResult对象信息转换成字符串
-        CookieUtils.setCookie(request, response, "user",
+        CookieUtils.setCookie(request, response, BaseController.USER_COOKIE,
                 JsonUtils.objectToJson(userResult), true);
 
         // TODO 生成用户token，存入redis会话
@@ -147,7 +147,7 @@ public class PassportController {
                                   HttpServletResponse response){
 
         // 清除用户相关信息的cookie
-        CookieUtils.deleteCookie(request, response, "user");
+        CookieUtils.deleteCookie(request, response, BaseController.USER_COOKIE);
 
         // TODO 用户退出登录，需要请客购物车
         // TODO 分布式会话中需要清除用户数据

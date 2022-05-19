@@ -6,6 +6,8 @@ com\imooc\service\CarouselService.class
 com\imooc\service\impl\CategoryServiceImpl.class
 com\imooc\service\impl\AddressServiceImpl.class
 com\imooc\service\impl\CarouselServiceImpl.class
+com\imooc\service\impl\OrderServiceImpl.class
+com\imooc\service\OrderService.class
 com\imooc\service\impl\TestTransServiceImpl.class
 com\imooc\service\ItemService.class
 com\imooc\service\TestTransService.class

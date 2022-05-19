@@ -1,0 +1,2 @@
+2022-05-12 14:55:11 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.AddressServiceImpl.queryAll ======
+2022-05-12 14:55:11 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：9 毫秒 ======

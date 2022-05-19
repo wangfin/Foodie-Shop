@@ -15,41 +15,41 @@ public interface ItemService {
 
     /**
      * 根据商品ID查询商品详情
-     * @param id 全局唯一ID
+     * @param itemId 商品ID，这是一个全局唯一ID
      * @return
      */
-    public Items queryItemById(String id);
+    public Items queryItemById(String itemId);
 
     /**
      * 根据商品ID查询商品图片列表
-     * @param itemId
+     * @param itemId 商品ID
      * @return
      */
     public List<ItemsImg> queryItemImgList(String itemId);
 
     /**
-     * 根据商品ID查询商品规格
-     * @param itemId
+     * 根据商品ID查询商品规格列表
+     * @param itemId 商品ID
      * @return
      */
     public List<ItemsSpec> queryItemSpecList(String itemId);
 
     /**
      * 根据商品ID查询商品属性
-     * @param itemId
+     * @param itemId 商品ID
      * @return
      */
     public ItemsParam queryItemsParam(String itemId);
 
     /**
      * 根据商品ID查询商品的评价等级数量
-     * @param itemId
+     * @param itemId 商品ID
      */
     public CommentLevelCountsVO queryCommentCounts(String itemId);
 
     /**
      * 根据商品ID查询商品的评价，这里对评价进行了分页
-     * @param itemId
+     * @param itemId 商品ID
      * @param level 好评，中评，差评
      * @return
      */
@@ -60,7 +60,7 @@ public interface ItemService {
      * 根据关键字搜索商品列表
      * @param keywords 关键字
      * @param sort 按什么排序，默认排序，销量排序，价格排序
-     * @param page
+     * @param page 分页
      * @param pageSize
      * @return
      */
@@ -84,4 +84,25 @@ public interface ItemService {
      * @return
      */
     public List<ShopcartVO> queryItemsBySpecIds(String specIds);
+
+    /**
+     * 根据规格ID查询商品具体规格信息
+     * @param specId 规格ID
+     * @return
+     */
+    public ItemsSpec queryItemSpecById(String specId);
+
+    /**
+     * 根据商品ID获得商品图片主图的URL
+     * @param itemId 商品ID
+     * @return
+     */
+    public String queryItemMainImgById(String itemId);
+
+    /**
+     * 减少库存
+     * @param specId 规格ID
+     * @param buyCounts 购买数量
+     */
+    public void decreaseItemSpecStock(String specId, int buyCounts);
 }

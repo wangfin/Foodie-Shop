@@ -1,10 +1,7 @@
 package com.imooc.controller;
 
-import com.imooc.enums.YesOrNo;
 import com.imooc.pojo.*;
 import com.imooc.pojo.vo.*;
-import com.imooc.service.CarouselService;
-import com.imooc.service.CategoryService;
 import com.imooc.service.ItemService;
 import com.imooc.utils.IMOOCJSONResult;
 import com.imooc.utils.PagedGridResult;
@@ -15,7 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.Inet4Address;
 import java.util.List;
 
 @Api(value = "商品接口", tags = {"商品信息展示的相关接口"})

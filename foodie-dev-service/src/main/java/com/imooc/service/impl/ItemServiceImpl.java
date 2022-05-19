@@ -2,7 +2,8 @@ package com.imooc.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.imooc.enums.CommentLevel;
+import com.imooc.enums.CommentLevelEnum;
+import com.imooc.enums.YesOrNoEnum;
 import com.imooc.mapper.*;
 import com.imooc.pojo.*;
 import com.imooc.pojo.vo.CommentLevelCountsVO;
@@ -54,6 +55,7 @@ public class ItemServiceImpl implements ItemService {
         return itemsImgMapper.selectByExample(itemsImgExp);
     }
 
+    // 根据商品ID查询商品规格列表
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ItemsSpec> queryItemSpecList(String itemId) {
@@ -64,6 +66,7 @@ public class ItemServiceImpl implements ItemService {
         return itemsSpecMapper.selectByExample(itemsSpecExp);
     }
 
+    // 根据商品ID查询商品属性
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public ItemsParam queryItemsParam(String itemId) {
@@ -79,9 +82,9 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public CommentLevelCountsVO queryCommentCounts(String itemId) {
 
-        Integer goodCounts = getCommentCounts(itemId, CommentLevel.GOOD.type);
-        Integer normalCounts = getCommentCounts(itemId, CommentLevel.NORMAL.type);
-        Integer badCounts = getCommentCounts(itemId, CommentLevel.BAD.type);
+        Integer goodCounts = getCommentCounts(itemId, CommentLevelEnum.GOOD.type);
+        Integer normalCounts = getCommentCounts(itemId, CommentLevelEnum.NORMAL.type);
+        Integer badCounts = getCommentCounts(itemId, CommentLevelEnum.BAD.type);
         Integer totalCounts = goodCounts + normalCounts + badCounts;
 
         // 通过VO将数据回传
@@ -173,7 +176,7 @@ public class ItemServiceImpl implements ItemService {
         return setterPagedGrid(list, page);
     }
 
-    // 根据商品规格ID查询商品信息，用于购物车展示
+    // 根据商品规格IDs查询商品信息，用于购物车展示
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ShopcartVO> queryItemsBySpecIds(String specIds) {
@@ -184,5 +187,47 @@ public class ItemServiceImpl implements ItemService {
         Collections.addAll(specIdsList, ids);
 
         return itemsMapperCustom.queryItemsBySpecId(specIdsList);
+    }
+
+    // 根据商品规格ID查询商品信息
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public ItemsSpec queryItemSpecById(String specId) {
+        return itemsSpecMapper.selectByPrimaryKey(specId);
+    }
+
+    // 根据商品ID获得商品图片主图的URL
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public String queryItemMainImgById(String itemId) {
+        ItemsImg itemsImg = new ItemsImg();
+        itemsImg.setItemId(itemId);
+        itemsImg.setIsMain(YesOrNoEnum.YES.type);
+        ItemsImg result = itemsImgMapper.selectOne(itemsImg);
+        return result != null ? result.getUrl() : "";
+    }
+
+    // 用户购买时，需要从库存中减少相应的数量
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public void decreaseItemSpecStock(String specId, int buyCounts) {
+
+        // 到库存这边，就会涉及到高并发导致的超卖的问题，即多个线程同时访问，他们本身判断库存都安全，但是总得导致库存不足
+        // 解决方案1：使用synchronized关键字，不推荐使用，在集群下，会有多个服务器，还是会导致超卖问题，并且性能低下
+        // 解决方案2：锁数据库，不推荐使用，导致数据集性能降低
+        // 解决方案3：分布式锁 zookeeper redis
+
+        // 加锁
+        // 1. 查询库存
+        // 2. 判断库存，是否能够减少到0以下
+        // 解锁
+
+        // 在单体阶段，使用数据库乐观锁的方式来处理超卖问题
+        int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
+        // 这里的结果1表示数据库更新成功，即库存够的
+        if (result != 1){
+            throw new RuntimeException("订单创建失败，原因：库存不足！");
+        }
+
     }
 }

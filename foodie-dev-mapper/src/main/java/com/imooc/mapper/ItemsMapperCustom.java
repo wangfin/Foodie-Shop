@@ -19,4 +19,9 @@ public interface ItemsMapperCustom {
 
     // 查询商品规格信息，用于在购物车中展示
     public List<ShopcartVO> queryItemsBySpecId(@Param("paramsList") List<String> specIdsList);
+
+    // 在单体阶段，使用数据库乐观锁的机制解决超卖问题
+    // 即在数据库中更新库存数量，该函数即用于更新数量
+    public int decreaseItemSpecStock(@Param("specId") String specId,
+                                     @Param("pendingCounts") Integer pendingCounts);
 }

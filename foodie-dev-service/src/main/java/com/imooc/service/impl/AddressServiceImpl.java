@@ -1,6 +1,6 @@
 package com.imooc.service.impl;
 
-import com.imooc.enums.YesOrNo;
+import com.imooc.enums.YesOrNoEnum;
 import com.imooc.mapper.UserAddressMapper;
 import com.imooc.pojo.UserAddress;
 import com.imooc.pojo.bo.AddressBO;
@@ -95,11 +95,11 @@ public class AddressServiceImpl implements AddressService {
         // 1. 查找默认地址，设置为不默认
         UserAddress queryAddress = new UserAddress();
         queryAddress.setUserId(userId);
-        queryAddress.setIsDefault(YesOrNo.YES.type);
+        queryAddress.setIsDefault(YesOrNoEnum.YES.type);
         List<UserAddress> list =  userAddressMapper.select(queryAddress);
         // 防止数据库中有多个默认地址
         for(UserAddress ua: list){
-            ua.setIsDefault(YesOrNo.NO.type);
+            ua.setIsDefault(YesOrNoEnum.NO.type);
             userAddressMapper.updateByPrimaryKeySelective(ua);
         }
 
@@ -108,7 +108,17 @@ public class AddressServiceImpl implements AddressService {
         defaultAddress.setUserId(userId);
         defaultAddress.setId(addressId);
         // 设置为默认
-        defaultAddress.setIsDefault(YesOrNo.YES.type);
+        defaultAddress.setIsDefault(YesOrNoEnum.YES.type);
         userAddressMapper.updateByPrimaryKeySelective(defaultAddress);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public UserAddress queryUserAddress(String userId, String addressId) {
+        UserAddress singleAddress = new UserAddress();
+        singleAddress.setUserId(userId);
+        singleAddress.setId(addressId);
+
+        return userAddressMapper.selectOne(singleAddress);
     }
 }

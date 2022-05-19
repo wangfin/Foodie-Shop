@@ -1,6 +1,6 @@
 package com.imooc.service.impl;
 
-import com.imooc.enums.Sex;
+import com.imooc.enums.SexEnum;
 import com.imooc.mapper.UsersMapper;
 import com.imooc.pojo.Users;
 import com.imooc.pojo.bo.UserBO;
@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
         // 默认生日，有一个字符串到日期的转换
         user.setBirthday(DateUtil.stringToDate("1900-01-01"));
         // 默认性别，使用枚举类规范
-        user.setSex(Sex.secret.type);
+        user.setSex(SexEnum.secret.type);
 
         // 创建时间与更新时间
         user.setCreatedTime(new Date());

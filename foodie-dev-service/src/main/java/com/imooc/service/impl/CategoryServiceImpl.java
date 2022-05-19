@@ -1,6 +1,6 @@
 package com.imooc.service.impl;
 
-import com.imooc.enums.Type;
+import com.imooc.enums.TypeEnum;
 import com.imooc.mapper.CategoryMapper;
 import com.imooc.mapper.CategoryMapperCustom;
 import com.imooc.pojo.Category;
@@ -34,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
         Example categoryExample  = new Example(Category.class);
         Example.Criteria criteria = categoryExample.createCriteria();
         // 获取一级分类，因为前端未传入参数，所以在这里使用枚举类
-        criteria.andEqualTo("type", Type.Level1.type);
+        criteria.andEqualTo("type", TypeEnum.Level1.type);
         List<Category> result = categoryMapper.selectByExample(categoryExample);
 
         return result;
