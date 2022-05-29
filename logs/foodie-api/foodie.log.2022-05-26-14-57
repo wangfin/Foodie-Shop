@@ -1,0 +1,7 @@
+2022-05-26 14:57:00 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-05-26 14:57:00 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：916 毫秒 ======
+2022-05-26 14:57:15 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.updateUserFace ======
+2022-05-26 14:57:15 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：21 毫秒 ======
+2022-05-26 14:57:15 INFO  CookieUtils:210 - ========== domainName: localhost ==========
+2022-05-26 14:57:16 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-26 14:57:16 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======

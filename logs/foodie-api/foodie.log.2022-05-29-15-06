@@ -1,0 +1,21 @@
+2022-05-29 15:06:03 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.UserServiceImpl.queryUserForLogin ======
+2022-05-29 15:06:03 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：30 毫秒 ======
+2022-05-29 15:06:03 INFO  CookieUtils:210 - ========== domainName: localhost ==========
+2022-05-29 15:06:03 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CarouselServiceImpl.queryAll ======
+2022-05-29 15:06:03 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.queryAllRootLevelCat ======
+2022-05-29 15:06:03 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======
+2022-05-29 15:06:03 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：13 毫秒 ======
+2022-05-29 15:06:04 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-29 15:06:04 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======
+2022-05-29 15:06:20 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-29 15:06:20 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：57 毫秒 ======
+2022-05-29 15:06:24 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrder ======
+2022-05-29 15:06:24 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：5 毫秒 ======
+2022-05-29 15:06:24 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyCommentsServiceImpl.queryPendingComment ======
+2022-05-29 15:06:24 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：5 毫秒 ======
+2022-05-29 15:06:47 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrder ======
+2022-05-29 15:06:47 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======
+2022-05-29 15:06:47 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyCommentsServiceImpl.saveComments ======
+2022-05-29 15:06:47 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：22 毫秒 ======
+2022-05-29 15:06:49 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-29 15:06:49 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：15 毫秒 ======

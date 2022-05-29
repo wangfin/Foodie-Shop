@@ -1,0 +1,16 @@
+2022-05-28 17:18:24 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:24 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：4 毫秒 ======
+2022-05-28 17:18:31 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:31 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======
+2022-05-28 17:18:32 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:32 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：4 毫秒 ======
+2022-05-28 17:18:33 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:33 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======
+2022-05-28 17:18:34 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:34 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：4 毫秒 ======
+2022-05-28 17:18:35 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:35 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======
+2022-05-28 17:18:35 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:35 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：6 毫秒 ======
+2022-05-28 17:18:36 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-28 17:18:36 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======

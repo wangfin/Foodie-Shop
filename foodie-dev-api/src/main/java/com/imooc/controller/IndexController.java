@@ -32,7 +32,6 @@ public class IndexController {
 
     /**
      * 获取首页轮播图列表
-     * @return
      */
     @ApiOperation(value = "获取首页轮播图列表", notes = "获取首页轮播图列表", httpMethod = "GET")
     @GetMapping("/carousel")

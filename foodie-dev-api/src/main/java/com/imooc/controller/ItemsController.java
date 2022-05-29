@@ -105,7 +105,7 @@ public class ItemsController extends BaseController{
 
         // 设置默认pageSize
         if (pageSize == null){
-            pageSize = COMMENT_PAGE_SIZE;
+            pageSize = COMMON_PAGE_SIZE;
         }
 
         // 查询商品不同评级的评论具体信息，具有分页功能

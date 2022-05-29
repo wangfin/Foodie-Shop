@@ -1,0 +1,5 @@
+2022-05-27 17:04:58 INFO  DispatcherServlet:524 - Initializing Servlet 'dispatcherServlet'
+2022-05-27 17:04:58 INFO  DispatcherServlet:546 - Completed initialization in 13 ms
+2022-05-27 17:04:58 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.queryMyOrders ======
+2022-05-27 17:04:58 INFO  HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-05-27 17:04:59 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.

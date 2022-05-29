@@ -1,0 +1,2 @@
+2022-05-29 17:00:00 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.OrderServiceImpl.closeOrder ======
+2022-05-29 17:00:00 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：24 毫秒 ======

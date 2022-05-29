@@ -1,0 +1,8 @@
+2022-05-25 11:07:00 INFO  DispatcherServlet:524 - Initializing Servlet 'dispatcherServlet'
+2022-05-25 11:07:00 INFO  DispatcherServlet:546 - Completed initialization in 25 ms
+2022-05-25 11:07:00 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-25 11:07:00 INFO  HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-05-25 11:07:01 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-05-25 11:07:01 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：1305 毫秒 ======
+2022-05-25 11:07:13 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-25 11:07:13 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：10 毫秒 ======

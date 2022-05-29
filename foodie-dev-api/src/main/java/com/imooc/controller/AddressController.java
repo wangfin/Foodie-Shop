@@ -12,8 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Api(value = "地址相关", tags = {"地址相关的api接口"})
@@ -40,8 +38,8 @@ public class AddressController {
     @ApiOperation(value = "根据用户ID获取用户收货地址列表", notes = "根据用户ID获取用户收货地址列表", httpMethod = "POST")
     @PostMapping("/list")
     public IMOOCJSONResult list(
-            @RequestParam String userId
-    ){
+            @ApiParam(name = "userId", value = "用户ID", required = true)
+            @RequestParam String userId){
         // 这里仅作简单判断
         if (StringUtils.isBlank(userId)){
             return IMOOCJSONResult.errorMsg(null);
@@ -59,7 +57,9 @@ public class AddressController {
      */
     @ApiOperation(value = "用户新增地址", notes = "用户新增地址", httpMethod = "POST")
     @PostMapping("/add")
-    public IMOOCJSONResult add(@RequestBody AddressBO addressBO){
+    public IMOOCJSONResult add(
+            @ApiParam(name = "addressBO", value = "地址BO", required = true)
+            @RequestBody AddressBO addressBO){
 
         IMOOCJSONResult checkRes = checkAddress(addressBO);
         // 失败
@@ -114,7 +114,9 @@ public class AddressController {
      */
     @ApiOperation(value = "用户更新地址", notes = "用户更新地址", httpMethod = "POST")
     @PostMapping("/update")
-    public IMOOCJSONResult update(@RequestBody AddressBO addressBO){
+    public IMOOCJSONResult update(
+            @ApiParam(name = "addressBO", value = "地址BO", required = true)
+            @RequestBody AddressBO addressBO){
 
         // 地址ID不能为空
         if (StringUtils.isBlank(addressBO.getAddressId())){
@@ -141,7 +143,9 @@ public class AddressController {
     @ApiOperation(value = "根据用户ID和地址ID删除地址", notes = "根据用户ID和地址ID删除地址", httpMethod = "POST")
     @PostMapping("/delete")
     public IMOOCJSONResult delete(
+            @ApiParam(name = "userId", value = "用户ID", required = true)
             @RequestParam String userId,
+            @ApiParam(name = "addressId", value = "地址ID", required = true)
             @RequestParam String addressId){
 
         // 判空
@@ -162,7 +166,9 @@ public class AddressController {
     @ApiOperation(value = "设置用户默认地址", notes = "设置用户默认地址", httpMethod = "POST")
     @PostMapping("/setDefault")
     public IMOOCJSONResult setDefault(
+            @ApiParam(name = "userId", value = "用户ID", required = true)
             @RequestParam String userId,
+            @ApiParam(name = "addressId", value = "地址ID", required = true)
             @RequestParam String addressId){
 
         // 判空

@@ -1,0 +1,4 @@
+2022-05-28 17:22:07 WARN  DefaultHandlerExceptionResolver:198 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2022-05-28 17:22:16 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.MyOrdersServiceImpl.updateDeliverOrderStatus ======
+2022-05-28 17:22:16 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：12 毫秒 ======
+2022-05-28 17:22:59 WARN  DefaultHandlerExceptionResolver:198 - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]

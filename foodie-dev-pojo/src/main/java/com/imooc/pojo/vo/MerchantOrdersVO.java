@@ -1,5 +1,8 @@
 package com.imooc.pojo.vo;
 
+/**
+ * 商户订单VO，提供给商户付款中心
+ */
 public class MerchantOrdersVO {
 
     private String merchantOrderId;         // 商户订单号

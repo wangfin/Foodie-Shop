@@ -1,4 +1,4 @@
-2022-05-19 11:00:00 INFO  HikariDataSource:110 - DateSourceHikariCP - Starting...
-2022-05-19 11:00:01 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.
-2022-05-19 11:00:01 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.OrderServiceImpl.closeOrder ======
-2022-05-19 11:00:01 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：167 毫秒 ======
+2022-05-29 17:58:39 INFO  ThreadPoolTaskScheduler:208 - Shutting down ExecutorService 'taskScheduler'
+2022-05-29 17:58:39 INFO  ThreadPoolTaskExecutor:208 - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-29 17:58:39 INFO  HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-05-29 17:58:39 INFO  HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.

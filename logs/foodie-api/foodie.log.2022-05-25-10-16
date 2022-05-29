@@ -1,0 +1,14 @@
+2022-05-25 10:16:16 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-25 10:16:16 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：6 毫秒 ======
+2022-05-25 10:16:34 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.updateUserInfo ======
+2022-05-25 10:16:34 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：18 毫秒 ======
+2022-05-25 10:16:34 INFO  CookieUtils:210 - ========== domainName: localhost ==========
+2022-05-25 10:16:36 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-25 10:16:36 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：4 毫秒 ======
+2022-05-25 10:16:43 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.updateUserInfo ======
+2022-05-25 10:16:43 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：13 毫秒 ======
+2022-05-25 10:16:43 INFO  CookieUtils:210 - ========== domainName: localhost ==========
+2022-05-25 10:16:45 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-25 10:16:45 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======
+2022-05-25 10:16:50 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-25 10:16:50 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：3 毫秒 ======

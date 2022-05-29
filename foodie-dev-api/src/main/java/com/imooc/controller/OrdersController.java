@@ -11,12 +11,10 @@ import com.imooc.service.OrderService;
 import com.imooc.utils.IMOOCJSONResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +42,7 @@ public class OrdersController extends BaseController{
     @ApiOperation(value = "用户下单", notes = "用户下单", httpMethod = "POST")
     @PostMapping("/create")
     public IMOOCJSONResult create(
+            @ApiParam(name = "submitOrderBO", value = "提交订单的BO", required = true)
             @RequestBody SubmitOrderBO submitOrderBO,
             HttpServletRequest request,
             HttpServletResponse response){
@@ -111,7 +110,9 @@ public class OrdersController extends BaseController{
      * @return
      */
     @PostMapping("notifyMerchantOrderPaid")
-    public Integer notifyMerchantOrderPaid(String merchantOrderId){
+    public Integer notifyMerchantOrderPaid(
+            @ApiParam(name = "merchantOrderId", value = "商户订单ID", required = true)
+            @RequestParam String merchantOrderId){
         // 修改订单状态，这里是wait pay
         orderService.updateOrderStatus(merchantOrderId, OrderStatusEnum.WAIT_DELIVER.type);
         return HttpStatus.OK.value();
@@ -124,7 +125,9 @@ public class OrdersController extends BaseController{
      * @return
      */
     @PostMapping("getPaidOrderInfo")
-    public IMOOCJSONResult getPaidOrderInfo(String orderId){
+    public IMOOCJSONResult getPaidOrderInfo(
+            @ApiParam(name = "orderId", value = "用户订单ID", required = true)
+            @RequestParam String orderId){
         OrderStatus orderStatus = orderService.queryOrderStatusInfo(orderId);
         return IMOOCJSONResult.ok(orderStatus);
     }

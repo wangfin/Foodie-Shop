@@ -1,0 +1,17 @@
+2022-05-27 17:31:00 INFO  DispatcherServlet:524 - Initializing Servlet 'dispatcherServlet'
+2022-05-27 17:31:00 INFO  DispatcherServlet:546 - Completed initialization in 13 ms
+2022-05-27 17:31:00 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.center.CenterUserServiceImpl.queryUserInfo ======
+2022-05-27 17:31:00 INFO  HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-05-27 17:31:01 INFO  HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-05-27 17:31:01 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：856 毫秒 ======
+2022-05-27 17:31:45 INFO  ThreadPoolTaskScheduler:208 - Shutting down ExecutorService 'taskScheduler'
+2022-05-27 17:31:45 INFO  ThreadPoolTaskExecutor:208 - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-27 17:31:45 INFO  HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-05-27 17:31:45 INFO  HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-05-27 17:31:57 INFO  Version:21 - HV000001: Hibernate Validator 6.0.16.Final
+2022-05-27 17:31:57 INFO  Application:50 - Starting Application on TerransForce with PID 14648 (F:\Java_demo\Foodie-dev\foodie-dev-api\target\classes started by 冰糖 in F:\Java_demo\Foodie-dev)
+2022-05-27 17:31:57 INFO  Application:675 - No active profile set, falling back to default profiles: default
+2022-05-27 17:31:58 WARN  ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.imooc]' package. Please check your configuration.
+2022-05-27 17:31:59 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330 - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5b9ad763] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-27 17:31:59 INFO  TomcatWebServer:90 - Tomcat initialized with port(s): 8088 (http)
+2022-05-27 17:31:59 INFO  ContextLoader:296 - Root WebApplicationContext: initialization completed in 1655 ms

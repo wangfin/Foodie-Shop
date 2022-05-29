@@ -1,0 +1,9 @@
+2022-05-25 10:02:58 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.UserServiceImpl.queryUserForLogin ======
+2022-05-25 10:02:58 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：11 毫秒 ======
+2022-05-25 10:02:58 INFO  CookieUtils:210 - ========== domainName: localhost ==========
+2022-05-25 10:02:59 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CarouselServiceImpl.queryAll ======
+2022-05-25 10:02:59 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.queryAllRootLevelCat ======
+2022-05-25 10:02:59 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======
+2022-05-25 10:02:59 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：6 毫秒 ======
+2022-05-25 10:02:59 INFO  ServiceLogAspect:42 - ====== 开始执行 class com.imooc.service.impl.CategoryServiceImpl.getSixNewItemsLazy ======
+2022-05-25 10:02:59 INFO  ServiceLogAspect:62 - ====== 执行结束，耗时：7 毫秒 ======

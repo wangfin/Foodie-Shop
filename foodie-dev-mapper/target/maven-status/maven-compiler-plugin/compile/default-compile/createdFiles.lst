@@ -9,7 +9,9 @@ com\imooc\mapper\ItemsImgMapper.class
 com\imooc\mapper\OrdersMapper.class
 com\imooc\mapper\CarouselMapper.class
 com\imooc\mapper\UserAddressMapper.class
+com\imooc\mapper\ItemsCommentsMapperCustom.class
 com\imooc\mapper\ItemsMapper.class
 com\imooc\mapper\OrderStatusMapper.class
 com\imooc\my\mapper\MyMapper.class
+com\imooc\mapper\OrdersMapperCustom.class
 com\imooc\mapper\CategoryMapper.class
