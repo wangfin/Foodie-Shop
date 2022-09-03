@@ -49,7 +49,7 @@ public class AddressServiceImpl implements AddressService {
 
         // 2. 保存地址到数据库
         UserAddress newAddress = new UserAddress();
-        // 从前段传入的BO中拷贝属性值
+        // 从前端传入的BO中拷贝属性值
         BeanUtils.copyProperties(addressBO, newAddress);
 
         newAddress.setId(addressId);

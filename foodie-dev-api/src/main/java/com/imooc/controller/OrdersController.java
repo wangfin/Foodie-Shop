@@ -48,8 +48,8 @@ public class OrdersController extends BaseController{
             HttpServletResponse response){
 
         // 判断支付方式
-        if (submitOrderBO.getPayMethod() != PayMethodEnum.WEIXIN.type &&
-                submitOrderBO.getPayMethod() != PayMethodEnum.ALIPAY.type){
+        if (!submitOrderBO.getPayMethod().equals(PayMethodEnum.WEIXIN.type) &&
+                !submitOrderBO.getPayMethod().equals(PayMethodEnum.ALIPAY.type)){
             return IMOOCJSONResult.errorMsg("支付方式不支持！");
         }
 
