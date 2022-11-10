@@ -8,6 +8,7 @@ org\n3r\idworker\strategy\FileLock.class
 com\imooc\enums\YesOrNoEnum.class
 com\imooc\utils\MobileEmailUtils.class
 com\imooc\utils\JsonUtils.class
+com\imooc\utils\MD5Utils.class
 com\imooc\utils\PagedGridResult.class
 org\n3r\idworker\Test.class
 org\n3r\idworker\Sid$1.class
@@ -23,6 +24,7 @@ org\n3r\idworker\utils\Props$Silent.class
 org\n3r\idworker\WorkerIdStrategy.class
 com\imooc\utils\DateUtil.class
 org\n3r\idworker\utils\Utils.class
+com\imooc\utils\DesensitizationUtil.class
 org\n3r\idworker\DayCode.class
 org\n3r\idworker\strategy\DayPrefixRandomCodeStrategy.class
 org\n3r\idworker\IdWorker.class

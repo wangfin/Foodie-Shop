@@ -11,6 +11,10 @@
 
     <artifactId>foodie-dev-api</artifactId>
 
+    <!--先将项目打包成war包-->
+    <!--打包war 【1】-->
+    <packaging>war</packaging>
+
     <dependencies>
         <!--
             api -> service -> mapper -> pojo -> common

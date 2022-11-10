@@ -6,6 +6,7 @@ com\imooc\service\AddressService.class
 com\imooc\service\impl\center\MyOrdersServiceImpl.class
 com\imooc\service\CarouselService.class
 com\imooc\service\impl\CategoryServiceImpl.class
+com\imooc\service\impl\StuServiceImpl.class
 com\imooc\service\center\CenterUserService.class
 com\imooc\service\impl\center\MyCommentsServiceImpl.class
 com\imooc\service\center\MyCommentsService.class

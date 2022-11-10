@@ -15,3 +15,4 @@ com\imooc\mapper\OrderStatusMapper.class
 com\imooc\my\mapper\MyMapper.class
 com\imooc\mapper\OrdersMapperCustom.class
 com\imooc\mapper\CategoryMapper.class
+com\imooc\mapper\CategoryMapperCustom.class

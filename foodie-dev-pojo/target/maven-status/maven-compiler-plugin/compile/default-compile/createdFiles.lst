@@ -5,6 +5,7 @@ com\imooc\pojo\vo\ShopcartVO.class
 com\imooc\pojo\vo\center\OrderStatusCountsVO.class
 com\imooc\pojo\bo\AddressBO.class
 com\imooc\pojo\OrderItems.class
+com\imooc\pojo\vo\CategoryVO.class
 com\imooc\pojo\vo\center\MyOrdersVO.class
 com\imooc\pojo\vo\NewItemsVO.class
 com\imooc\pojo\vo\OrderVO.class
@@ -28,5 +29,6 @@ com\imooc\pojo\vo\center\MyCommentVO.class
 com\imooc\pojo\vo\center\MySubOrderItemVO.class
 com\imooc\pojo\bo\center\OrderItemsCommentBO.class
 com\imooc\pojo\Stu.class
+com\imooc\pojo\vo\SubCategoryVO.class
 com\imooc\pojo\vo\MerchantOrdersVO.class
 com\imooc\pojo\Items.class
