@@ -19,7 +19,7 @@ public interface CategoryService {
      * @param rootCatId
      * @return
      */
-    public  List<CategoryVO> getSubCatList(Integer rootCatId);
+    public List<CategoryVO> getSubCatList(Integer rootCatId);
 
     /**
      * 查询首页每个一级分类下的6条最新商品数据

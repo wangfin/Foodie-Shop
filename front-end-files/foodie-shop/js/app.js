@@ -9,8 +9,8 @@ window.app = {
     /* 生产环境 */
     serverUrl: "http://139.224.250.243:8088/foodie-dev-api",                      // 接口服务接口地址
     paymentServerUrl: "http://payment.t.mukewang.com/foodie-payment",       // 支付中心服务地址
-    shopServerUrl: "http://139.224.250.243:8080/foodie-shop/",                            // 门户网站地址
-    centerServerUrl: "http://139.224.250.243:8080/foodie-center/",                        // 用户中心地址
+    shopServerUrl: "http://139.224.250.243:80/foodie-shop/",                            // 门户网站地址
+    centerServerUrl: "http://139.224.250.243:80/foodie-center/",                        // 用户中心地址
     cookieDomain: "http://139.224.250.243",                                       // cookie 域
 
     ctx: "/foodie-shop",
