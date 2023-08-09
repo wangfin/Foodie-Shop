@@ -15,8 +15,6 @@ server:
 #
 ####################################################################
 spring:
-  profiles:
-    active: dev
   datasource:                                     # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource      # 数据源类型：HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver     # MySQL驱动
@@ -36,6 +34,12 @@ spring:
         multipart:
           max-file-size: 512000     # 文件上传大小限制为500kb
           max-request-size: 512000  # 请求大小限制为500kb
+  redis:
+    database: 0
+    host: 139.224.250.243
+    port: 6379
+    password: 123456
+
 
 ############################################################
 #

@@ -1,0 +1,9 @@
+/.DS_Store
+target/
+default-compile/
+*.jar
+*.class
+*.lst
+*.json
+.idea
+
