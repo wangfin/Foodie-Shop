@@ -6,6 +6,7 @@ import com.imooc.mapper.OrderItemsMapper;
 import com.imooc.mapper.OrderStatusMapper;
 import com.imooc.mapper.OrdersMapper;
 import com.imooc.pojo.*;
+import com.imooc.pojo.bo.ShopcartBO;
 import com.imooc.pojo.bo.SubmitOrderBO;
 import com.imooc.pojo.vo.MerchantOrdersVO;
 import com.imooc.pojo.vo.OrderVO;
@@ -13,11 +14,13 @@ import com.imooc.service.AddressService;
 import com.imooc.service.ItemService;
 import com.imooc.service.OrderService;
 import com.imooc.utils.DateUtil;
+import com.imooc.utils.RedisUtils;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -43,10 +46,13 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private Sid sid;
 
+    @Autowired
+    private RedisUtils redisUtils;
+
     // 根据信息创建订单
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
-    public OrderVO createOrder(SubmitOrderBO submitOrderBO){
+    public OrderVO createOrder(List<ShopcartBO> shopCartList, SubmitOrderBO submitOrderBO) {
         // 获取基本字段
         String userId = submitOrderBO.getUserId();
         String addressId = submitOrderBO.getAddressId();
@@ -86,13 +92,14 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setUpdatedTime(new Date());
 
         // 2. 循环根据itemSpecIds保存订单商品信息
-        String[] itemSpecIdArr =  itemSpecIds.split(",");
+        String[] itemSpecIdArr = itemSpecIds.split(",");
         int totalAmount = 0; // 商品原价累计
         int realPayAmount = 0; // 优惠后的实际支付价格累计
-        for (String itemSpecId: itemSpecIdArr){
+        for (String itemSpecId : itemSpecIdArr) {
+            ShopcartBO cartItem = getBuyCountsFromShopCart(shopCartList, itemSpecId);
 
-            // TODO 整合redis后，商品购买的数量重新从redis的购物车中获取
-            int buyCounts = 1;
+            // 整合redis后，商品购买的数量重新从redis的购物车中获取
+            int buyCounts = cartItem.getBuyCounts();
 
             // 2.1 根据规格ID，查询规格的具体信息，主要获取价格
             ItemsSpec itemSpec = itemService.queryItemSpecById(itemSpecId);
@@ -123,9 +130,9 @@ public class OrderServiceImpl implements OrderService {
             itemService.decreaseItemSpecStock(itemSpecId, buyCounts);
         }
 
-         newOrder.setTotalAmount(totalAmount);
-         newOrder.setRealPayAmount(realPayAmount);
-         ordersMapper.insert(newOrder);
+        newOrder.setTotalAmount(totalAmount);
+        newOrder.setRealPayAmount(realPayAmount);
+        ordersMapper.insert(newOrder);
 
         // 3. 保存订单状态表
         // 一开始为等待付款状态
@@ -136,12 +143,13 @@ public class OrderServiceImpl implements OrderService {
         orderStatusMapper.insert(waitPayOrderStatus);
 
         // 4. 构建商户订单，用于传给支付中心
+        // 这里没有配置支付中心，所以给注释掉了
         MerchantOrdersVO merchantOrdersVO = new MerchantOrdersVO();
-        merchantOrdersVO.setMerchantOrderId(orderId);
-        merchantOrdersVO.setMerchantUserId(userId);
-        // 最终价格+邮费
-        merchantOrdersVO.setAmount(realPayAmount + postAmount);
-        merchantOrdersVO.setPayMethod(payMethod);
+//        merchantOrdersVO.setMerchantOrderId(orderId);
+//        merchantOrdersVO.setMerchantUserId(userId);
+//        // 最终价格+邮费
+//        merchantOrdersVO.setAmount(realPayAmount + postAmount);
+//        merchantOrdersVO.setPayMethod(payMethod);
 
         // 5. 构建自定义订单VO
         OrderVO orderVO = new OrderVO();
@@ -180,12 +188,12 @@ public class OrderServiceImpl implements OrderService {
         OrderStatus queryOrder = new OrderStatus();
         queryOrder.setOrderStatus(OrderStatusEnum.WAIT_PAY.type);
         List<OrderStatus> list = orderStatusMapper.select(queryOrder);
-        for (OrderStatus os: list){
+        for (OrderStatus os : list) {
             // 获得订单创建时间
             Date createdTime = os.getCreatedTime();
             // 和当前时间进行对比，获得时间差
             int days = DateUtil.daysBetween(createdTime, new Date());
-            if (days >= 1){
+            if (days >= 1) {
                 // 超过1天，关闭订单
                 doCloseOrder(os.getOrderId());
             }
@@ -194,11 +202,32 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    void doCloseOrder(String orderId){
+    void doCloseOrder(String orderId) {
         OrderStatus close = new OrderStatus();
         close.setOrderId(orderId);
         close.setOrderStatus(OrderStatusEnum.CLOSE.type);
         close.setCloseTime(new Date());
         orderStatusMapper.updateByPrimaryKeySelective(close);
+    }
+
+    /**
+     * 从redis中的购物车里获取商品，获得counts
+     * @param shopCartList 购物车信息
+     * @param specId 规格ID
+     * @return
+     */
+    private ShopcartBO getBuyCountsFromShopCart(List<ShopcartBO> shopCartList, String specId) {
+        ShopcartBO res = new ShopcartBO();
+        if (CollectionUtils.isEmpty(shopCartList)) {
+            return res;
+        }
+
+        for (ShopcartBO sc: shopCartList) {
+            if (specId.equals(sc.getSpecId())) {
+                res = sc;
+                break;
+            }
+        }
+        return res;
     }
 }
