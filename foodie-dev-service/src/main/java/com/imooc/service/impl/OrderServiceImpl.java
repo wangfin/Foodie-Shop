@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -95,11 +96,14 @@ public class OrderServiceImpl implements OrderService {
         String[] itemSpecIdArr = itemSpecIds.split(",");
         int totalAmount = 0; // 商品原价累计
         int realPayAmount = 0; // 优惠后的实际支付价格累计
+        // 创建一个列表，在创建订单之后，把redis购物车中的数据清空
+        List<ShopcartBO> toBeRemovedShopCartList = new ArrayList<>();
         for (String itemSpecId : itemSpecIdArr) {
             ShopcartBO cartItem = getBuyCountsFromShopCart(shopCartList, itemSpecId);
 
             // 整合redis后，商品购买的数量重新从redis的购物车中获取
             int buyCounts = cartItem.getBuyCounts();
+            toBeRemovedShopCartList.add(cartItem);
 
             // 2.1 根据规格ID，查询规格的具体信息，主要获取价格
             ItemsSpec itemSpec = itemService.queryItemSpecById(itemSpecId);
@@ -145,16 +149,17 @@ public class OrderServiceImpl implements OrderService {
         // 4. 构建商户订单，用于传给支付中心
         // 这里没有配置支付中心，所以给注释掉了
         MerchantOrdersVO merchantOrdersVO = new MerchantOrdersVO();
-//        merchantOrdersVO.setMerchantOrderId(orderId);
-//        merchantOrdersVO.setMerchantUserId(userId);
+        merchantOrdersVO.setMerchantOrderId(orderId);
+        merchantOrdersVO.setMerchantUserId(userId);
 //        // 最终价格+邮费
-//        merchantOrdersVO.setAmount(realPayAmount + postAmount);
-//        merchantOrdersVO.setPayMethod(payMethod);
+        merchantOrdersVO.setAmount(realPayAmount + postAmount);
+        merchantOrdersVO.setPayMethod(payMethod);
 
         // 5. 构建自定义订单VO
         OrderVO orderVO = new OrderVO();
         orderVO.setOrderId(orderId);
         orderVO.setMerchantOrdersVO(merchantOrdersVO);
+        orderVO.setToBeRemovedShopCartList(toBeRemovedShopCartList);
 
         // 返回orderID即可
         return orderVO;

@@ -1,9 +1,8 @@
-/.DS_Store
-target/
-default-compile/
-*.jar
 *.class
+*.war
+*.jar
 *.lst
 *.json
-.idea
+.idea/
+
 
