@@ -3,11 +3,13 @@ package com.imooc.controller;
 import com.imooc.pojo.Users;
 import com.imooc.pojo.bo.ShopcartBO;
 import com.imooc.pojo.bo.UserBO;
+import com.imooc.pojo.vo.UsersVo;
 import com.imooc.service.UserService;
 import com.imooc.utils.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Api(value = "注册登录", tags = {"用于注册登录的相关接口"})
 @RestController
 @RequestMapping("passport")
-public class PassportController extends BaseController{
+public class PassportController extends BaseController {
 
     @Autowired
     private UserService userService;
@@ -30,23 +33,24 @@ public class PassportController extends BaseController{
 
     /**
      * 检测用户名是否存在
+     *
      * @param username 用户名
      * @return
      */
     @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
     @GetMapping("/usernameIsExist")
-    public IMOOCJSONResult usernameIsExist(@RequestParam String username){
+    public IMOOCJSONResult usernameIsExist(@RequestParam String username) {
         // @RequestParam 表示username是一种请求参数而不是请求路径
         // 这里使用的是apache commons-lang3中的StringUtils
         // 1. 判断用户名是否为空，或者空字符串
-        if (StringUtils.isBlank(username)){
+        if (StringUtils.isBlank(username)) {
             // 返回HTTP状态码，500
             return IMOOCJSONResult.errorMsg("用户名不能为空");
         }
 
         // 2. 查找注册的用户名是否存在
         boolean isExist = userService.queryUsernameIsExist(username);
-        if (isExist){
+        if (isExist) {
             return IMOOCJSONResult.errorMsg("用户名已经存在");
         }
 
@@ -56,7 +60,8 @@ public class PassportController extends BaseController{
 
     /**
      * 用户注册
-     * @param userBO 信息BO
+     *
+     * @param userBO   信息BO
      * @param request
      * @param response
      * @return
@@ -65,7 +70,7 @@ public class PassportController extends BaseController{
     @PostMapping("/regist")
     public IMOOCJSONResult regist(@RequestBody UserBO userBO,
                                   HttpServletRequest request,
-                                  HttpServletResponse response){
+                                  HttpServletResponse response) {
         String username = userBO.getUsername();
         String password = userBO.getPassword();
         String confirmPwd = userBO.getConfirmPassword();
@@ -73,33 +78,35 @@ public class PassportController extends BaseController{
         // 1. 判断用户名和密码必须不为空
         if (StringUtils.isBlank(username) ||
                 StringUtils.isBlank(username) ||
-                StringUtils.isBlank(username)){
+                StringUtils.isBlank(username)) {
             return IMOOCJSONResult.errorMsg("用户名或密码不能为空");
         }
         // 2. 查询用户名是否存在
         boolean isExist = userService.queryUsernameIsExist(username);
-        if (isExist){
+        if (isExist) {
             return IMOOCJSONResult.errorMsg("用户名已经存在");
         }
         // 3. 密码长度不能少于6位
-        if (password.length() < 6){
+        if (password.length() < 6) {
             return IMOOCJSONResult.errorMsg("密码长度不能少于6");
         }
         // 4. 判断两次密码是否一致
-        if (!password.equals(confirmPwd)){
+        if (!password.equals(confirmPwd)) {
             return IMOOCJSONResult.errorMsg("两次密码输入不一致");
         }
         // 5. 实现注册
         Users userResult = userService.createUser(userBO);
 
         // 删除信息
-        userResult = setNullProperty(userResult);
+        // userResult = setNullProperty(userResult);
+
+        // 实现用户的redis会话
+        UsersVo usersVo = conventUsersVo(userResult);
 
         // 在注册完成之后，同样设置cookie
         CookieUtils.setCookie(request, response, BaseController.USER_COOKIE,
-                JsonUtils.objectToJson(userResult), true);
+                JsonUtils.objectToJson(usersVo), true);
 
-        // TODO 生成用户token，存入redis会话
         // 同步购物车数据
         syncShopCartData(userResult.getId(), request, response);
 
@@ -108,6 +115,7 @@ public class PassportController extends BaseController{
 
     /**
      * 注册登录成功后，同步cookie和redis中的购物车数据
+     *
      * @param userId 登录的userId
      */
     private void syncShopCartData(String userId,
@@ -149,10 +157,10 @@ public class PassportController extends BaseController{
 
                     // 待删除列表
                     List<ShopcartBO> toBeRemovedShopCartList = new ArrayList<>();
-                    for (ShopcartBO redisShopCart: shopCartListRedis) {
+                    for (ShopcartBO redisShopCart : shopCartListRedis) {
                         String redisSpecId = redisShopCart.getSpecId();
 
-                        for (ShopcartBO cookieShopCart: shopCartListCookie) {
+                        for (ShopcartBO cookieShopCart : shopCartListCookie) {
                             String cookieSpecId = cookieShopCart.getSpecId();
 
                             if (redisSpecId.equals(cookieSpecId)) {
@@ -185,7 +193,8 @@ public class PassportController extends BaseController{
 
     /**
      * 用户登录
-     * @param userBO 信息BO
+     *
+     * @param userBO   信息BO
      * @param request
      * @param response
      * @return
@@ -195,14 +204,14 @@ public class PassportController extends BaseController{
     @PostMapping("/login")
     public IMOOCJSONResult login(@RequestBody UserBO userBO,
                                  HttpServletRequest request,
-                                 HttpServletResponse response) throws Exception{
+                                 HttpServletResponse response) throws Exception {
         String username = userBO.getUsername();
         String password = userBO.getPassword();
 
         // 1. 判断用户名和密码必须不为空
         if (StringUtils.isBlank(username) ||
                 StringUtils.isBlank(username) ||
-                StringUtils.isBlank(username)){
+                StringUtils.isBlank(username)) {
             return IMOOCJSONResult.errorMsg("用户名或密码不能为空");
         }
 
@@ -210,20 +219,22 @@ public class PassportController extends BaseController{
         Users userResult = userService.queryUserForLogin(username,
                 MD5Utils.getMD5Str(password));
 
-        if (userResult == null){
+        if (userResult == null) {
             return IMOOCJSONResult.errorMsg("用户名或密码不正确");
         }
 
         // 删除部分隐私信息
-        userResult = setNullProperty(userResult);
+        // userResult = setNullProperty(userResult);
+
+        // 实现用户的redis会话
+        UsersVo usersVo = conventUsersVo(userResult);
 
         // 设置cookie，将用户登录信息保存在cookie里，而不是使用session
         // session后面使用分布式session，使用无状态信息
         // JsonUtils.objectToJson将userResult对象信息转换成字符串
         CookieUtils.setCookie(request, response, BaseController.USER_COOKIE,
-                JsonUtils.objectToJson(userResult), true);
+                JsonUtils.objectToJson(usersVo), true);
 
-        // TODO 生成用户token，存入redis会话
         // 同步购物车数据
         syncShopCartData(userResult.getId(), request, response);
 
@@ -231,7 +242,7 @@ public class PassportController extends BaseController{
     }
 
     // 将隐私信息删除，不显示
-    private Users setNullProperty(Users userResult){
+    private Users setNullProperty(Users userResult) {
         userResult.setPassword(null);
         userResult.setMobile(null);
         userResult.setEmail(null);
@@ -244,7 +255,8 @@ public class PassportController extends BaseController{
 
     /**
      * 用户退出登录
-     * @param userId 用户ID
+     *
+     * @param userId   用户ID
      * @param request
      * @param response
      * @return
@@ -253,14 +265,16 @@ public class PassportController extends BaseController{
     @PostMapping("/logout")
     public IMOOCJSONResult logout(@RequestParam String userId,
                                   HttpServletRequest request,
-                                  HttpServletResponse response){
+                                  HttpServletResponse response) {
 
         // 清除用户相关信息的cookie
         CookieUtils.deleteCookie(request, response, USER_COOKIE);
 
         // 用户退出登录，需要清空购物车
         CookieUtils.deleteCookie(request, response, FOODIE_SHOPCART_COOKIE);
-        // TODO 分布式会话中需要清除用户数据
+
+        // 分布式会话中，用户退出登录需要清除用户redis数据
+        redisUtils.delete(REDIS_USER_TOKEN + ":" + userId);
 
         return IMOOCJSONResult.ok();
     }

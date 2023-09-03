@@ -17,6 +17,7 @@ org\n3r\idworker\strategy\DefaultRandomCodeStrategy$1.class
 com\imooc\enums\CommentLevelEnum.class
 com\imooc\enums\TypeEnum.class
 org\n3r\idworker\Sid.class
+com\imooc\utils\RedisUtils$1.class
 org\n3r\idworker\RandomCodeStrategy.class
 org\n3r\idworker\utils\IPv4Utils.class
 com\imooc\enums\OrderStatusEnum.class

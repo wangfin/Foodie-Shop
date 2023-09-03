@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Api(value = "首页", tags = {"首页展示的相关接口"})
 @RestController
@@ -107,7 +109,24 @@ public class IndexController {
             return IMOOCJSONResult.errorMsg("分类不存在");
         }
         // 查询所有一级分类的子分类
-        List<CategoryVO> list = categoryService.getSubCatList(rootCatId);
+        List<CategoryVO> list = new ArrayList<>();
+        String catsStr = redisUtils.get("subCat" + rootCatId);
+        if (StringUtils.isBlank(catsStr)) {
+            list = categoryService.getSubCatList(rootCatId);
+            if (!CollectionUtils.isEmpty(list)) {
+                // 有值的情况下，设置5分钟过期
+                redisUtils.setEx("subCat" + rootCatId, JsonUtils.objectToJson(list), 5, TimeUnit.MINUTES);
+            } else {
+                // 没有值也存在redis中，这样防止redis缓存穿透
+                // 缓存穿透指查询的key在缓存和数据库中都不存在，但是会频繁请求数据库，导致缓存失效
+                // 响应的缓存时间设置小一点
+                redisUtils.setEx("subCat" + rootCatId, JsonUtils.objectToJson(list), 30, TimeUnit.SECONDS);
+            }
+
+        } else {
+            list = JsonUtils.jsonToList(catsStr, CategoryVO.class);
+        }
+
         return IMOOCJSONResult.ok(list);
     }
 

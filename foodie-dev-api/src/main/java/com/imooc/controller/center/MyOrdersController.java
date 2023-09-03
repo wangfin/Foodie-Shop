@@ -24,6 +24,7 @@ public class MyOrdersController extends BaseController {
 
     /**
      * 查询我的订单列表
+     *
      * @return
      */
     @ApiOperation(value = "查询我的订单列表", notes = "查询我的订单列表", httpMethod = "POST")
@@ -37,20 +38,20 @@ public class MyOrdersController extends BaseController {
             @ApiParam(name = "page", value = "查询下一页的第几页", required = false)
             @RequestParam Integer page,
             @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)
-            @RequestParam Integer pageSize){
+            @RequestParam Integer pageSize) {
 
         // 判断输入是否为空
-        if (StringUtils.isBlank(userId)){
+        if (StringUtils.isBlank(userId)) {
             return IMOOCJSONResult.errorMsg(null);
         }
 
         // 判断page是否为空，如果不为空，则设置为默认的1
-        if (page == null){
+        if (page == null) {
             page = 1;
         }
 
         // 设置默认pageSize
-        if (pageSize == null){
+        if (pageSize == null) {
             pageSize = COMMON_PAGE_SIZE;
         }
 
@@ -61,7 +62,7 @@ public class MyOrdersController extends BaseController {
     }
 
     // 商家发货没有后端，所以这个接口仅仅只是用于模拟
-    @ApiOperation(value="商家发货", notes="商家发货", httpMethod = "GET")
+    @ApiOperation(value = "商家发货", notes = "商家发货", httpMethod = "GET")
     @GetMapping("/deliver")
     public IMOOCJSONResult deliver(
             @ApiParam(name = "orderId", value = "订单ID", required = true)
@@ -75,7 +76,7 @@ public class MyOrdersController extends BaseController {
     }
 
     // 用户确认收货
-    @ApiOperation(value="用户确认收货", notes="用户确认收货", httpMethod = "POST")
+    @ApiOperation(value = "用户确认收货", notes = "用户确认收货", httpMethod = "POST")
     @PostMapping("/confirmReceive")
     public IMOOCJSONResult confirmReceive(
             @ApiParam(name = "userId", value = "用户ID", required = true)
@@ -84,12 +85,12 @@ public class MyOrdersController extends BaseController {
             @RequestParam String orderId) throws Exception {
 
         IMOOCJSONResult checkResult = checkUserOrder(userId, orderId);
-        if (checkResult.getStatus() != HttpStatus.OK.value()){
+        if (checkResult.getStatus() != HttpStatus.OK.value()) {
             return checkResult;
         }
 
         boolean res = myOrdersService.updateReceiveOrderStatus(orderId);
-        if (!res){
+        if (!res) {
             return IMOOCJSONResult.errorMsg("订单确认收货失败！");
         }
 
@@ -97,7 +98,7 @@ public class MyOrdersController extends BaseController {
     }
 
     // 用户删除订单
-    @ApiOperation(value="用户删除订单", notes="用户删除订单", httpMethod = "POST")
+    @ApiOperation(value = "用户删除订单", notes = "用户删除订单", httpMethod = "POST")
     @PostMapping("/delete")
     public IMOOCJSONResult delete(
             @ApiParam(name = "userId", value = "用户ID", required = true)
@@ -106,37 +107,24 @@ public class MyOrdersController extends BaseController {
             @RequestParam String orderId) throws Exception {
 
         IMOOCJSONResult checkResult = checkUserOrder(userId, orderId);
-        if (checkResult.getStatus() != HttpStatus.OK.value()){
+        if (checkResult.getStatus() != HttpStatus.OK.value()) {
             return checkResult;
         }
 
         System.out.println(userId);
         System.out.println(orderId);
         boolean res = myOrdersService.deleteOrder(userId, orderId);
-        if (!res){
+        if (!res) {
             return IMOOCJSONResult.errorMsg("订单删除失败！");
         }
 
         return IMOOCJSONResult.ok();
     }
 
-    /**
-     * 用于验证用户和订单是否有关联关系，避免非法用户调用
-     * @param orderId 订单ID
-     * @param userId 用户ID
-     * @return
-     */
-    private IMOOCJSONResult checkUserOrder(String userId, String orderId){
-        Orders order = myOrdersService.queryMyOrder(userId, orderId);
-        if (order == null){
-            return IMOOCJSONResult.errorMsg("订单不存在！");
-        }else {
-            return IMOOCJSONResult.ok();
-        }
-    }
 
     /**
      * 获取不同状态类别的订单数量
+     *
      * @return
      */
     @ApiOperation(value = "获取不同状态类别的订单数量", notes = "获取不同状态类别的订单数量", httpMethod = "POST")
@@ -144,10 +132,10 @@ public class MyOrdersController extends BaseController {
     @PostMapping("/statusCounts")
     public IMOOCJSONResult statusCounts(
             @ApiParam(name = "userId", value = "用户ID", required = true)
-            @RequestParam String userId){
+            @RequestParam String userId) {
 
         // 判断输入是否为空
-        if (StringUtils.isBlank(userId)){
+        if (StringUtils.isBlank(userId)) {
             return IMOOCJSONResult.errorMsg(null);
         }
 
@@ -159,6 +147,7 @@ public class MyOrdersController extends BaseController {
 
     /**
      * 查询我的订单动向
+     *
      * @return
      */
     @ApiOperation(value = "查询我的订单动向", notes = "查询我的订单动向", httpMethod = "POST")
@@ -169,20 +158,20 @@ public class MyOrdersController extends BaseController {
             @ApiParam(name = "page", value = "查询下一页的第几页", required = false)
             @RequestParam Integer page,
             @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)
-            @RequestParam Integer pageSize){
+            @RequestParam Integer pageSize) {
 
         // 判断输入是否为空
-        if (StringUtils.isBlank(userId)){
+        if (StringUtils.isBlank(userId)) {
             return IMOOCJSONResult.errorMsg(null);
         }
 
         // 判断page是否为空，如果不为空，则设置为默认的1
-        if (page == null){
+        if (page == null) {
             page = 1;
         }
 
         // 设置默认pageSize
-        if (pageSize == null){
+        if (pageSize == null) {
             pageSize = COMMON_PAGE_SIZE;
         }
 

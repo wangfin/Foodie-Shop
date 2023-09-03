@@ -1,8 +1,12 @@
 package com.imooc.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.DataType;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.StringRedisConnection;
 import org.springframework.data.redis.core.Cursor;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
@@ -236,6 +240,27 @@ public class RedisUtils {
      */
     public List<String> multiGet(Collection<String> keys) {
         return redisTemplate.opsForValue().multiGet(keys);
+    }
+
+    /**
+     * 批量获取，管道pipline
+     * pipline 通过src可以做更多的操作
+     * @param keys
+     * @return
+     */
+    public List<Object> batchget(Collection<String> keys) {
+        List<Object> result = redisTemplate.executePipelined(new RedisCallback<Object>() {
+            @Override
+            public String doInRedis(RedisConnection connection) throws DataAccessException {
+                StringRedisConnection src = (StringRedisConnection) connection;
+                for (String key: keys) {
+                    src.get(key);
+                }
+                return null;
+            }
+        });
+
+        return result;
     }
 
     /**

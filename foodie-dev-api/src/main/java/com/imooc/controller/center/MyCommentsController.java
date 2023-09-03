@@ -6,7 +6,6 @@ import com.imooc.pojo.OrderItems;
 import com.imooc.pojo.Orders;
 import com.imooc.pojo.bo.center.OrderItemsCommentBO;
 import com.imooc.service.center.MyCommentsService;
-import com.imooc.service.center.MyOrdersService;
 import com.imooc.utils.IMOOCJSONResult;
 import com.imooc.utils.PagedGridResult;
 import io.swagger.annotations.Api;
@@ -27,11 +26,9 @@ public class MyCommentsController extends BaseController {
     @Autowired
     private MyCommentsService myCommentsService;
 
-    @Autowired
-    private MyOrdersService myOrdersService;
-
     /**
      * 显示订单的关联产品
+     *
      * @return
      */
     @ApiOperation(value = "显示订单的关联产品", notes = "显示订单的关联产品", httpMethod = "POST")
@@ -41,16 +38,16 @@ public class MyCommentsController extends BaseController {
             @ApiParam(name = "userId", value = "用户ID", required = true)
             @RequestParam String userId,
             @ApiParam(name = "orderId", value = "订单ID", required = true)
-            @RequestParam String orderId){
+            @RequestParam String orderId) {
 
         // 判断用户和订单是否关联
         IMOOCJSONResult checkResult = checkUserOrder(userId, orderId);
-        if (checkResult.getStatus() != HttpStatus.OK.value()){
+        if (checkResult.getStatus() != HttpStatus.OK.value()) {
             return checkResult;
         }
         // 判断该笔订单是否已经评价过，评价过了就不在继续
-        Orders myOrder = (Orders)checkResult.getData();
-        if (myOrder.getIsComment() == YesOrNoEnum.YES.type){
+        Orders myOrder = (Orders) checkResult.getData();
+        if (YesOrNoEnum.YES.type.equals(myOrder.getIsComment())) {
             return IMOOCJSONResult.errorMsg("该笔订单已经评价！");
         }
 
@@ -61,22 +58,8 @@ public class MyCommentsController extends BaseController {
     }
 
     /**
-     * 用于验证用户和订单是否有关联关系，避免非法用户调用
-     * @param orderId 订单ID
-     * @param userId 用户ID
-     * @return
-     */
-    private IMOOCJSONResult checkUserOrder(String userId, String orderId){
-        Orders order = myOrdersService.queryMyOrder(userId, orderId);
-        if (order == null){
-            return IMOOCJSONResult.errorMsg("订单不存在！");
-        }else {
-            return IMOOCJSONResult.ok(order);
-        }
-    }
-
-    /**
      * 保存商品评价信息
+     *
      * @return
      */
     @ApiOperation(value = "保存商品评价信息", notes = "保存商品评价信息", httpMethod = "POST")
@@ -88,16 +71,16 @@ public class MyCommentsController extends BaseController {
             @ApiParam(name = "orderId", value = "订单ID", required = true)
             @RequestParam String orderId,
             @ApiParam(name = "commentList", value = "商品评价信息的BO", required = true)
-            @RequestBody List<OrderItemsCommentBO> commentList){
+            @RequestBody List<OrderItemsCommentBO> commentList) {
 
         // 判断用户和订单是否关联
         IMOOCJSONResult checkResult = checkUserOrder(userId, orderId);
-        if (checkResult.getStatus() != HttpStatus.OK.value()){
+        if (checkResult.getStatus() != HttpStatus.OK.value()) {
             return checkResult;
         }
 
         // 判断评论内容list不能为空
-        if (commentList == null || commentList.isEmpty()){
+        if (commentList == null || commentList.isEmpty()) {
             return IMOOCJSONResult.errorMsg("评论内容不能为空！");
         }
 
@@ -109,6 +92,7 @@ public class MyCommentsController extends BaseController {
 
     /**
      * 查询我的评价列表
+     *
      * @return
      */
     @ApiOperation(value = "查询我的评价列表", notes = "查询我的评价列表", httpMethod = "POST")
@@ -119,20 +103,20 @@ public class MyCommentsController extends BaseController {
             @ApiParam(name = "page", value = "查询下一页的第几页", required = false)
             @RequestParam Integer page,
             @ApiParam(name = "pageSize", value = "分页的每一页显示的条数", required = false)
-            @RequestParam Integer pageSize){
+            @RequestParam Integer pageSize) {
 
         // 判断输入是否为空
-        if (StringUtils.isBlank(userId)){
+        if (StringUtils.isBlank(userId)) {
             return IMOOCJSONResult.errorMsg(null);
         }
 
         // 判断page是否为空，如果不为空，则设置为默认的1
-        if (page == null){
+        if (page == null) {
             page = 1;
         }
 
         // 设置默认pageSize
-        if (pageSize == null){
+        if (pageSize == null) {
             pageSize = COMMON_PAGE_SIZE;
         }
 

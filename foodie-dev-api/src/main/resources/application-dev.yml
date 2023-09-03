@@ -35,10 +35,23 @@ spring:
           max-file-size: 512000     # 文件上传大小限制为500kb
           max-request-size: 512000  # 请求大小限制为500kb
   redis:
+    # Redis 单机单实例
     database: 0
     host: 139.224.250.243
     port: 6379
     password: 123456
+#    # Redis 哨兵模式
+#    database: 0
+#    password: 123456
+#    sentinel:
+#      # 主节点名称
+#      master: redis-master
+#      # 哨兵IP+port
+#      nodes: 139.224.250.243:6379,139.224.250.243:6379
+#    # Redis 集群模式
+#    password: 123456
+#    cluster:
+#      nodes: 139.224.250.243:6379,139.224.250.243:6379,139.224.250.243:6379,139.224.250.243:6379
 
 
 ############################################################
