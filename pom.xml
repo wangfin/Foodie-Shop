@@ -13,6 +13,7 @@
         <module>foodie-dev-mapper</module>
         <module>foodie-dev-service</module>
         <module>foodie-dev-api</module>
+        <module>foodie-dev-sso</module>
     </modules>
     <!--
         1.聚合工程里可以分为顶级项目（顶级工程、父工程）与子工程，这两者的关系其实就是父子继承的关系

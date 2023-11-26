@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="foodie-dev-pojo" />
         <module name="foodie-dev-service" />
+        <module name="foodie-dev-sso" />
         <module name="foodie-dev-common" />
         <module name="foodie-dev-api" />
         <module name="foodie-dev-mapper" />
@@ -24,6 +25,7 @@
       <module name="foodie-dev-mapper" options="-parameters" />
       <module name="foodie-dev-pojo" options="-parameters" />
       <module name="foodie-dev-service" options="-parameters" />
+      <module name="foodie-dev-sso" options="-parameters" />
     </option>
   </component>
 </project>
